@@ -46,7 +46,7 @@ static stClients ConvertRecordToLine(string Line, string separator = "|||") {
     vector<string> vClientData;
     vClientData = SplitString(Line, separator);
 
-    if (vClientData.size() <= 6) { // Ensure there are at least 6 elements in the vector
+    if (vClientData.size() <= 6) { 
         Client.AccountNumber = vClientData[0];
         Client.PINCODE = vClientData[1];
         Client.ClientName = vClientData[2];
@@ -54,10 +54,9 @@ static stClients ConvertRecordToLine(string Line, string separator = "|||") {
         Client.AccountBalance = stod(vClientData[4]);
     }
     else {
-        // Handle the case where the data doesn't have enough elements
-        // For example:
+       
         cerr << "Incomplete data in the record: " << Line << endl;
-        // You might want to set default values for Client or handle the error accordingly
+      
     }
 
     return Client;
